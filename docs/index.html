@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>WYSIWYG Showdown</title>
+    <link rel="stylesheet" href="styles.css"/>
+
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="banner">WYSIWYG Showdown</div>
+    <div class="main-content">
+
+      <div class="card">
+        <div class="heading">Quill</div>
+        <div class="editor-wrapper">
+          <div id="quill-editor">
+            <div>Hello, world!</div>
+          </div>
+        </div>
+        <div class="html-wrapper">
+          <pre id="quill-html">
+          </pre>
+        </div>
+        <div class="notes">
+          <ul>
+            <li>Default toolbar shown</li>
+            <li>Changes div to p by default. How to not have it do that?</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <script>
+function escape_html(s) {
+  return s
+    .replace(/<div>|<li>|<p>|<table>|<tr>|<td>|<ul>/g, '\n$&')
+    .replace(/^\n/, '')
+    .replace(/</g, '&lt;');
+}
+    </script>
+
+    <script>
+var quill = new Quill('#quill-editor', {
+  theme: 'snow'
+});
+
+function update_quill_html() {
+  let editor = document.getElementById('quill-editor');
+  let html = document.getElementById('quill-html');
+  html.innerHTML = escape_html(quill.root.innerHTML);
+}
+
+quill.on('text-change', function (delta, oldDelta, source) {
+  update_quill_html();
+});
+
+update_quill_html();
+    </script>
+  </body>
+</html>

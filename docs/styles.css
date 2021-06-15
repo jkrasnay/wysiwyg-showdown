@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font: 16px sans-serif;
+
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-color: #e5e5e5;
+}
+
+pre {
+  margin: 0;
+}
+
+.banner {
+  align-items: center;
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
+  height: 48px;
+  padding: 0 16px;
+}
+
+.main-content {
+  flex: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 16px;
+}
+
+.card {
+  height: 600px;
+  width: 480px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  background-color: white;
+  box-shadow: 0px 0px 8px 6px rgb(0 0 0 / 20%);
+}
+
+.heading {
+  border-bottom: 1px solid #ccc;
+  font-size: 24px;
+  padding: 16px;
+}
+
+.editor-wrapper {
+  border-bottom: 1px solid #ccc;
+  padding: 16px;
+}
+
+#quill-editor.ql-container {
+  /* Quill is a little misbehaved here.
+   * It sets the ql-container to 100% but then adds
+   * ql-toolbar on top of it, so the result always
+   * blows out of its container by the height of
+   * the toolbar.
+   */
+  height: 200px;
+}
+
+.html-wrapper {
+  border-bottom: 1px solid #ccc;
+  height: 100px;
+  overflow: auto;
+  padding: 16px;
+}
+
+
+/* ==================== Utilities ===================== */
+
+.fill {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.flex-auto {
+  flex: auto;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+

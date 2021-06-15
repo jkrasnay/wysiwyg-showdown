@@ -1,0 +1,5 @@
+= WYSIWYG Editor Showdown
+
+This project is meant as a playground to demonstrate multiple WYSIWYG editors.
+
+link::docs/index.html[Click Here]
